@@ -5,8 +5,110 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GFace"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="GFace App POC 2.01" Height="766" Width="980" MinWidth="600" ResizeMode="CanMinimize">
     <Grid>
-        
+        <Separator HorizontalAlignment="Left" Height="8" Margin="10,695,0,0" VerticalAlignment="Top" Width="935"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="201" Margin="724,10,0,0" VerticalAlignment="Top" Width="220">
+            <Grid>
+                <Label Content="Raw Preview" HorizontalAlignment="Left" Height="24" Margin="10,165,0,0" VerticalAlignment="Top" Width="198"/>
+                <Image x:Name="CamRaw" HorizontalAlignment="Left" Height="150" Margin="9,10,0,0" VerticalAlignment="Top" Width="200"/>
+            </Grid>
+        </Border>
+        <Grid HorizontalAlignment="Left" Height="690" VerticalAlignment="Top" Width="724">
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="569" Margin="10,10,0,0" VerticalAlignment="Top" Width="704">
+                <Grid HorizontalAlignment="Left" Margin="0,0,-2,9" Width="704">
+                    <Image x:Name="CamProcessed" HorizontalAlignment="Left" Height="518" Margin="6,7,0,0" VerticalAlignment="Top" Width="690"/>
+                    <Label Content="Processed Images" HorizontalAlignment="Left" Height="29" Margin="6,530,0,0" VerticalAlignment="Top" Width="203"/>
+                </Grid>
+            </Border>
+            <GroupBox Header="Remote" HorizontalAlignment="Left" Height="102" Margin="276,588,0,0" VerticalAlignment="Top" Width="438">
+                <Grid HorizontalAlignment="Left" Height="82" VerticalAlignment="Top" Width="438" Margin="0,0,-12,-12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="38*"/>
+                        <ColumnDefinition Width="181*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BtnConnect" Content="" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" ToolTip="Connect to remote server" Click="BtnConnect_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="assets/icons/009-plugs.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="BtnUploadFaces" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Height="36" Margin="54,0,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" ToolTip="Upload Faces" Click="BtnUploadFaces_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="assets/icons/cloud-computing-1.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="BtnRemoteIdentify" Content="" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="33,0,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" ToolTip="Identify Remotely" Click="BtnRemoteIdentify_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="assets/icons/stars.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="BtnGroupFaces" Content="" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="88,0,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" ToolTip="Group Faces" Click="BtnGroupFaces_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="assets/icons/users-1.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="BtnClearServer" Content="" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="302,0,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" ToolTip="Clear Server" Click="BtnClearServer_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="assets/icons/trash.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Local" HorizontalAlignment="Left" Height="102" Margin="10,588,0,0" VerticalAlignment="Top" Width="261">
+                <Grid HorizontalAlignment="Left" Height="82" Margin="0,0,-2,-2" VerticalAlignment="Top" Width="251">
+                    <Button x:Name="BtnRecord" Content="" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="45" BorderBrush="Transparent" Click="BtnRecord_Click" ToolTip="Start/Stop Camera">
+                        <Button.Background>
+                            <ImageBrush ImageSource="assets/icons/rec-1.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="BtnDetectFaces" Content="" HorizontalAlignment="Left" Height="36" Margin="50,0,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Click="BtnDetectFaces_Click" ToolTip="Detect Faces">
+                        <Button.Background>
+                            <ImageBrush ImageSource="assets/icons/focus-1.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="BtnSaveFaces" Content="" HorizontalAlignment="Left" Height="36" Margin="106,0,0,0" VerticalAlignment="Top" Width="50" ToolTip="Save faces to disk" BorderBrush="{x:Null}" Click="BtnSaveFaces_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="assets/icons/sd-card-1.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </GroupBox>
+            <Button x:Name="BtnClearLocalCache" Content="" HorizontalAlignment="Left" Height="36" Margin="221,604,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="1.684,0.619" BorderBrush="{x:Null}" ToolTip="Clear Local Cache" Click="BtnClearLocalCache_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="assets/icons/trash.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <GroupBox Header="Data on Server" HorizontalAlignment="Left" Height="162" Margin="724,528,-220,0" VerticalAlignment="Top" Width="220">
+                <Grid HorizontalAlignment="Left" Margin="0,-5,-6,33" Width="214">
+                    <Label Content="Stored:" HorizontalAlignment="Left" Height="30" Margin="4,11,0,0" VerticalAlignment="Top" Width="74"/>
+                    <Label x:Name="LblStoredNamesCount" Content="" HorizontalAlignment="Left" Height="30" Margin="83,11,0,0" VerticalAlignment="Top" Width="121"/>
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <TextBlock x:Name="StatusText" HorizontalAlignment="Left" Height="24" Margin="10,703,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="954"/>
+        <GroupBox Header="Log" HorizontalAlignment="Left" Height="302" Margin="724,216,0,0" VerticalAlignment="Top" Width="220">
+            <Grid HorizontalAlignment="Left" Height="288" Margin="-6,-5,-6,-3" VerticalAlignment="Top" Width="220">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="19*"/>
+                    <ColumnDefinition Width="193*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Detected:" HorizontalAlignment="Left" Height="30" Margin="5,14,0,0" VerticalAlignment="Top" Width="74" Grid.ColumnSpan="3"/>
+                <Label x:Name="LblDetected" Content="" HorizontalAlignment="Left" Height="30" Margin="57,14,0,0" VerticalAlignment="Top" Width="126" Grid.Column="2"/>
+                <Label Content="Undetected:" HorizontalAlignment="Left" Height="30" Margin="5,49,0,0" VerticalAlignment="Top" Width="74" Grid.ColumnSpan="3"/>
+                <Label x:Name="LblUndetected" Content="" HorizontalAlignment="Left" Height="30" Margin="57,49,0,0" VerticalAlignment="Top" Width="126" Grid.Column="2"/>
+                <Label Content="Identified:" HorizontalAlignment="Left" Height="30" Margin="5,84,0,0" VerticalAlignment="Top" Width="74" Grid.ColumnSpan="3"/>
+                <Label x:Name="LblIdentified" Content="Connect to server" HorizontalAlignment="Left" Height="30" Margin="57,84,0,0" VerticalAlignment="Top" Width="126" Grid.Column="2"/>
+                <Label Content="Unknown:" HorizontalAlignment="Left" Height="30" Margin="5,144,0,0" VerticalAlignment="Top" Width="74" Grid.ColumnSpan="3"/>
+                <Label x:Name="LblUnique" Content="Connect to server" HorizontalAlignment="Left" Height="30" Margin="57,214,0,0" VerticalAlignment="Top" Width="126" Grid.Column="2"/>
+                <Label Content="Unique:" HorizontalAlignment="Left" Height="30" Margin="5,214,0,0" VerticalAlignment="Top" Width="74" Grid.ColumnSpan="3" RenderTransformOrigin="0.514,2.133"/>
+                <Label x:Name="LblUnkown" Content="Connect to server" HorizontalAlignment="Left" Height="30" Margin="57,144,0,0" VerticalAlignment="Top" Width="126" Grid.Column="2"/>
+                <Label x:Name="LblMessy" Content="Connect to server" HorizontalAlignment="Left" Height="30" Margin="57,249,0,0" VerticalAlignment="Top" Width="126" Grid.Column="2"/>
+                <Label Content="Messy:" HorizontalAlignment="Left" Height="30" Margin="5,249,0,0" VerticalAlignment="Top" Width="74" Grid.ColumnSpan="3"/>
+                <Label Content="Repeats:" HorizontalAlignment="Left" Height="30" Margin="5,114,0,0" VerticalAlignment="Top" Width="74" Grid.ColumnSpan="3"/>
+                <Label x:Name="LblRepeats" Content="Connect to server" HorizontalAlignment="Left" Height="30" Margin="57,114,0,0" VerticalAlignment="Top" Width="126" Grid.Column="2"/>
+            </Grid>
+        </GroupBox>
+
     </Grid>
 </Window>
