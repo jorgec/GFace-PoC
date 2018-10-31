@@ -1,4 +1,4 @@
-# GFace-PoC
+# GFace-PoC - DEPRECATED
 ## GFace Proof of Capability
 
 OpenCV for initial image processing and face extraction, Microsoft Cognitive Services for face identification, grouping, and validation.
